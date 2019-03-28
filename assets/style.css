@@ -8,8 +8,13 @@
     width: 1%;
     height: 30px;
     background-color: green;
+    color: white;
+    text-align: center; /* To center it horizontally (if you want) */
+    line-height: 30px;
+    font-family: 'Press Start 2P', cursive;
   }
 #percentage{
+    margin: 15px;
     text-align: center;
     position: relative;
     font-family: 'Press Start 2P', cursive;

@@ -22,27 +22,20 @@ function percent(){
     console.log("Percentage: ", percentage*100);
 
     var percentSpan = $("#percentage")
-    percentSpan.text((percentage*100).toFixed(2));
+    if((percentage*100) > 50){
+        percentSpan.text("Almost Time to go home");
+    }else if((percentage*100) < 50){
+        percentSpan.text("Almost Time for lunch");
+    }   
+    
     var elem = document.getElementById("myBar");
     elem.style.width = (percentage*100+ '%');
-
-    // var startOfDay = moment().startOf('day')
-    // console.log(startOfDay)
-    // var endOfWorkDay = startOfDay.clone()
-    // endOfWorkDay.add(16, 'hours');
-    // var startOfWorkDay = startOfDay.add(7.5, 'hours')  
-    // var timeAtWork = startOfWorkDay.from(now); //endOfWorkDay.subtract(startOfWorkDay) 
-    // var percentDoneWD = (now / timeAtWork);
-    // console.log("Start of Day: ", startOfWorkDay.format('LT'));
-    // console.log("End of Day: ", endOfWorkDay.format('LT'));
-    // console.log("time At Work: ", timeAtWork);
-    // console.log("Percentage: ", percentDoneWD);
-
+    elem.innerHTML = (percentage*100).toFixed(2) + '%'
+    
 }
 
 
 function updateProgress(){
-    // progress(percent())
     percent();
     setInterval(updateProgress, 30000);
 }
