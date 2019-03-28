@@ -9,3 +9,8 @@
     height: 30px;
     background-color: green;
   }
+#percentage{
+    text-align: center;
+    position: relative;
+    font-family: 'Press Start 2P', cursive;
+}
