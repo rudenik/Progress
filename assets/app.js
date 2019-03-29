@@ -23,34 +23,47 @@ function percent(){
 
     var percentSpan = $("#percentage")
     if((percentage*100) > 100){
-        percentSpan.text("It's over, Go Home!");
+
+      percentSpan.text("It's over, Go Home!");
+      var elem = document.getElementById("myBar");
+      elem.style.backgroundColor= grey;
+
     }else if((percentage*100) > 80){
         percentSpan.text("Breathe, it's almost time to go home");
+        drawUpdate(percentage)
     }else if((percentage*100) > 59){
         percentSpan.text("You got this, keep going");
+        drawUpdate(percentage)
     }   
     else if((percentage*100) > 47){
         percentSpan.text("Stop what you're doing, get lunch");
+        drawUpdate(percentage)
     }   
     else if((percentage*100) > 35){
         percentSpan.text("Almost time for lunch");
+        drawUpdate(percentage)
     }   
     else if((percentage*100) > 10){
         percentSpan.text("Just think, this might be the most productive you'll be all day");
-    }   
+        drawUpdate(percentage)
+      }   
     else if((percentage*100) < 10){
         percentSpan.text("You shouldn't be checking the percentage yet, you haven't been here long enough");
-    }else if ((percentage*100) < 0){
+        drawUpdate(percentage)
+      }else if ((percentage*100) < 0){
       percentSpan.text("You got to work too early. Take a nap");
+      var elem = document.getElementById("myBar");
+      elem.style.backgroundColor= grey;
 
     }   
-    
-    var elem = document.getElementById("myBar");
-    elem.style.width = (percentage*100+ '%');
-    elem.innerHTML = (percentage*100).toFixed(2) + '%'
     
 }
 
+function drawUpdate(percentage){
+    var elem = document.getElementById("myBar");
+    elem.style.width = (percentage*100+ '%');
+    elem.innerHTML = (percentage*100).toFixed(2) + '%'
+}
 
 function updateProgress(){
     percent();
